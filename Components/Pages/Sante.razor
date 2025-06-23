@@ -1,0 +1,44 @@
+﻿@page "/sante"
+@using StudentHub.Models;
+@inject NavigationManager NavigationManager;
+
+<MudContainer>
+    @foreach (var category in healthCategories)
+    {
+        <MudCard>
+            <MudCardContent>
+                <MudText Typo="Typo.h5">@category.Name</MudText>
+                @foreach (var video in category.Videos)
+                {
+                    <MudCard>
+                        <MudCardContent>
+                            <MudText>@video.Title</MudText>
+                            <MudButton OnClick="@(() => NavigateToVideo(video.Url))" Color="Color.Primary">Visionner</MudButton>
+                        </MudCardContent>
+                    </MudCard>
+                }
+            </MudCardContent>
+        </MudCard>
+    }
+</MudContainer>
+
+@code {
+    private List<HealthCategory> healthCategories = new List<HealthCategory>
+    {
+        new HealthCategory
+        {
+            Name = "Bien-être",
+            Videos = new List<Video>
+            {
+                new Video { Title = "Yoga", Url = "https://example.com/yoga" },
+                // Ajoute d'autres vidéos
+            }
+        },
+        // Ajoute d'autres catégories
+    };
+
+    private void NavigateToVideo(string url)
+    {
+        NavigationManager.NavigateTo(url);
+    }
+}

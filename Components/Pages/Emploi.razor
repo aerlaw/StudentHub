@@ -1,0 +1,22 @@
+﻿@page "/emploi"
+@inject NavigationManager NavigationManager;
+
+<MudCard>
+    <MudCardContent>
+        <MudText Typo="Typo.h4">Sites de Recherche d'Emploi</MudText>
+        <MudButton OnClick="() => NavigateToAlternance()" Color="Color.Primary">Alternance</MudButton>
+        <MudButton OnClick="() => NavigateToPetitsBoulots()" Color="Color.Primary">Petits Bouleaux</MudButton>
+    </MudCardContent>
+</MudCard>
+
+@code {
+    private void NavigateToAlternance()
+    {
+        NavigationManager.NavigateTo("https://www.alternance.fr");
+    }
+
+    private void NavigateToPetitsBoulots()
+    {
+        NavigationManager.NavigateTo("https://www.petit-boulot.com");
+    }
+}

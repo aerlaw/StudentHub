@@ -1,0 +1,25 @@
+﻿@page "/administratif"
+@inject NavigationManager NavigationManager;
+
+<MudCard>
+    <MudCardContent>
+        <MudText Typo="Typo.h4">Services de l'État Français</MudText>
+        <MudButton OnClick="RedirectToANTS" Color="Color.Primary">ANTS</MudButton>
+        <MudButton OnClick="RedirectToCAF" Color="Color.Primary">CAF</MudButton>
+        <!-- Ajoute d'autres services si nécessaire -->
+    </MudCardContent>
+</MudCard>
+
+@code {
+
+    private void RedirectToANTS()
+    {
+        NavigationManager.NavigateTo("https://ants.gouv.fr");
+    }
+
+    private void RedirectToCAF()
+    {
+        NavigationManager.NavigateTo("https://www.caf.fr");
+    }
+
+}

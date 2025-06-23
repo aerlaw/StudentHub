@@ -1,0 +1,26 @@
+﻿@page "/login"
+@using Microsoft.EntityFrameworkCore
+@using StudentHub.Data
+@inject ApplicationDbContext DbContext
+
+<MudCard>
+    <MudCardContent>
+        <MudTextField @bind-Value="_email" Label="Email" Required="true" />
+        <MudTextField @bind-Value="_password" Label="Password" Type="password" Required="true" />
+        <MudButton OnClick="LoginTask" Color="Color.Primary">Se connecter</MudButton>
+    </MudCardContent>
+</MudCard>
+
+@code {
+    private string? _email;
+    private string? _password;
+
+    private async Task LoginTask()
+    {
+        var user = await DbContext.Users.FirstOrDefaultAsync(u => u.Email == _email && u.Password == _password);
+        if (user != null)
+        {
+            // Rediriger l'utilisateur après la connexion
+        }
+    }
+}

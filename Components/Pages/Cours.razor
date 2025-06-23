@@ -1,0 +1,89 @@
+﻿@page "/cours"
+@using StudentHub.Models;
+
+<MudContainer>
+   <MudGrid>
+       @foreach (var category in categories)
+       {
+           <MudItem xs="12" sm="6">
+               <MudCard>
+                   <MudCardContent>
+                       <MudText Typo="Typo.h5">@category.Name</MudText>
+                       @foreach (var subcategory in category.Subcategories)
+                       {
+                           <MudCard>
+                               <MudCardContent>
+                                   <MudText Typo="Typo.h6">@subcategory.Name</MudText>
+                                   @foreach (var course in subcategory.Courses)
+                                   {
+                                       <MudCard>
+                                           <MudCardContent>
+                                               <MudText>@course.Title</MudText>
+                                               <MudText>@course.Description</MudText>
+                                               <MudText>@course.Duration</MudText>
+                                               <MudButton OnClick="@(() => NavigateToCourse(course.Id))" Color="Color.Primary">Accéder</MudButton>
+                                           </MudCardContent>
+                                       </MudCard>
+                                   }
+                               </MudCardContent>
+                           </MudCard>
+                       }
+                   </MudCardContent>
+               </MudCard>
+           </MudItem>
+       }
+   </MudGrid>
+</MudContainer>
+
+@code {
+
+    private List<CoursCategory> categories = new List<CoursCategory>
+    {
+        new CoursCategory
+        {
+            Name = "Littérature",
+            Subcategories = new List<CoursSubCategory>
+            {
+                new CoursSubCategory
+                {
+                    Name = "Français",
+                    Courses = new List<Course>
+                    {
+                        new Course { Id = 1, Title = "Conjugaison", Duration = "2h", Description = "Cours sur la conjugaison." },
+                        new Course { Id = 2, Title = "Grammaire", Duration = "3h", Description = "Cours sur la grammaire." }
+                    }
+                },
+                new CoursSubCategory
+                {
+                    Name = "Anglais",
+                    Courses = new List<Course>
+                    {
+                        new Course { Id = 3, Title = "Vocabulaire", Duration = "1h30", Description = "Cours sur le vocabulaire." }
+                    }
+                }
+            }
+        },
+        new CoursCategory
+        {
+            Name = "Mathématiques",
+            Subcategories = new List<CoursSubCategory>
+            {
+                new CoursSubCategory
+                {
+                    Name = "Algèbre",
+                    Courses = new List<Course>
+                    {
+                        new Course { Id = 4, Title = "Équations", Duration = "2h", Description = "Cours sur les équations." }
+                    }
+                }
+            }
+        },
+        // Ajoute d'autres catégories si nécessaire
+    };
+
+    private void NavigateToCourse(int courseId)
+    {
+        // Logique pour naviguer vers le cours
+        // Par exemple : NavigationManager.NavigateTo($"/cours/{courseId}");
+    }
+}

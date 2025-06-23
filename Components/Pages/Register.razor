@@ -1,0 +1,90 @@
+﻿@page "/register"
+@inject ApplicationDbContext DbContext
+@inject NavigationManager Navigation
+@using StudentHub.Data
+@using StudentHub.Models
+
+<div class="card">
+    <div class="card-content">
+        <h2>S'inscrire</h2>
+        <EditForm Model="newUser" OnValidSubmit="RegisterTask">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div>
+                <label for="name">Nom</label>
+                <input type="text" id="name" @bind="newUser.Name" required />
+            </div>
+
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" @bind="newUser.Email" required />
+            </div>
+
+            <div>
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" @bind="newUser.Password" required />
+            </div>
+
+            <div>
+                <button type="submit">S'inscrire</button>
+            </div>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    private User newUser = new User();
+
+    private async Task RegisterTask()
+    {
+        Console.WriteLine("RegisterTask called");
+
+        if (!string.IsNullOrEmpty(newUser.Email) && !string.IsNullOrEmpty(newUser.Password))
+        {
+            DbContext.Users.Add(newUser);
+            await DbContext.SaveChangesAsync();
+            Navigation.NavigateTo("/login");
+        }
+        else
+        {
+            Console.WriteLine("Les informations d'identification sont invalides.");
+        }
+    }
+}
+
+<style>
+    .card {
+        max-width: 400px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    input {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button {
+        padding: 10px;
+        background-color: #007bff; /* Couleur du bouton */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #0056b3; /* Couleur au survol */
+        }
+</style>

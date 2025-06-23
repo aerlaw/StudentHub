@@ -1,0 +1,28 @@
+﻿@page "/social"
+@inject NavigationManager NavigationManager;
+
+<MudCard>
+    <MudCardContent>
+        <MudText Typo="Typo.h4">Forum Étudiant</MudText>
+        <MudButton OnClick="() => NavigateToFacebook()" Color="Color.Primary">Facebook Group</MudButton>
+        <MudButton OnClick="() => NavigateToWhatsApp()" Color="Color.Primary">WhatsApp Group</MudButton>
+        <MudButton OnClick="() => NavigateToDiscord()" Color="Color.Primary">Discord Group</MudButton>
+    </MudCardContent>
+</MudCard>
+
+@code {
+    private void NavigateToFacebook()
+    {
+        NavigationManager.NavigateTo("https://facebook.com");
+    }
+
+    private void NavigateToWhatsApp()
+    {
+        NavigationManager.NavigateTo("https://whatsapp.com");
+    }
+
+    private void NavigateToDiscord()
+    {
+        NavigationManager.NavigateTo("https://discord.com");
+    }
+}

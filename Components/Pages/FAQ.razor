@@ -1,0 +1,26 @@
+﻿@page "/faq"
+
+<MudCard>
+    <MudCardContent>
+        <MudText Typo="Typo.h4">Questions Fréquemment Posées</MudText>
+        <MudTextField @bind-Value="_question" Label="Soumettre une question" />
+        <MudButton OnClick="SubmitQuestion" Color="Color.Primary">Soumettre</MudButton>
+
+        <MudText Typo="Typo.h5">Liste des Questions :</MudText>
+        @foreach (var question in _questions)
+        {
+            <MudText>@question</MudText>
+        }
+    </MudCardContent>
+</MudCard>
+
+@code {
+    private string? _question;
+    private readonly List<string?> _questions = new List<string?>();
+
+    private void SubmitQuestion()
+    {
+        _questions.Add(_question);
+        _question = string.Empty; // Réinitialiser le champ
+    }
+}

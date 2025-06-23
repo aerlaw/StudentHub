@@ -1,0 +1,22 @@
+﻿@page "/bons-plans"
+@inject NavigationManager NavigationManager;
+
+<MudCard>
+    <MudCardContent>
+        <MudText Typo="Typo.h4">Bon Plans Étudiants</MudText>
+        <MudButton OnClick="() => NavigateToUnidays()" Color="Color.Primary">Unidays</MudButton>
+        <MudButton OnClick="() => NavigateToStudentBeans()" Color="Color.Primary">Student Beans</MudButton>
+    </MudCardContent>
+</MudCard>
+
+@code {
+    private void NavigateToUnidays()
+    {
+        NavigationManager.NavigateTo("https://www.unidays.com");
+    }
+
+    private void NavigateToStudentBeans()
+    {
+        NavigationManager.NavigateTo("https://www.studentbeans.com");
+    }
+}
