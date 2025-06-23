@@ -1,6 +1,169 @@
 ﻿@page "/"
+@inject NavigationManager NavigationManager
 
-<PageTitle>Home</PageTitle>
+<MudContainer>
+    <MudText Typo="Typo.h2" Align="Align.Center" Style="margin-top: 20px;">
+        Bienvenue sur StudentHub
+    </MudText>
+    <MudText Typo="Typo.h4" Align="Align.Center" Style="margin-top: 20px;">
+        Simplifiez votre vie étudiante !
+    </MudText>
 
-<MudText Typo="Typo.h3" GutterBottom="true">Hello, Student!</MudText>
-<MudText Class="mb-8">Welcome to your new hub, powered by MudBlazor and the .NET 9 Template!</MudText>
+    <MudGrid Justify="Justify.Center" Style="margin-top: 20px;">
+        <MudItem xs="12" sm="6" md="4">
+            <MudCard Class="rounded-xl card-background">
+                <div class="card-image" style="background-image: url('img/bonplan.jpg');"></div>
+                <div class="card-overlay"></div>
+                <MudCardContent Class="card-content">
+                    <MudText Typo="Typo.h5" Align="Align.Center" GutterBottom="true">Bon Plans</MudText>
+                    <MudText Typo="Typo.body2">Découvrez des réductions exclusives conçues pour vous !</MudText>
+                </MudCardContent>
+                <MudCardActions Class="card-actions">
+                    <MudButton OnClick="GoToBonPlans" Color="Color.Primary" FullWidth="true" Variant="Variant.Filled" Class="rounded-xl">Voir plus</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+
+        <MudItem xs="12" sm="6" md="4">
+            <MudCard Class="rounded-xl card-background">
+                <div class="card-image" style="background-image: url('img/cours.jpg');"></div>
+                <div class="card-overlay"></div>
+                <MudCardContent Class="card-content">
+                    <MudText Typo="Typo.h6" Align="Align.Center" GutterBottom="true">Cours</MudText>
+                    <MudText>Accédez à une variété de cours adaptés à votre niveau.</MudText>
+                </MudCardContent>
+                <MudCardActions Class="card-actions">
+                    <MudButton OnClick="GoToCours" Color="Color.Primary" FullWidth="true" Variant="Variant.Filled" Class="rounded-xl">Voir plus</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+
+        <MudItem xs="12" sm="6" md="4">
+            <MudCard Class="rounded-xl card-background">
+                <div class="card-image" style="background-image: url('/img/sante.jpg');"></div>
+                <div class="card-overlay"></div>
+                <MudCardContent Class="card-content">
+                    <MudText Typo="Typo.h6" Align="Align.Center" GutterBottom="true">Santé</MudText>
+                    <MudText>Des ressources pour votre bien-être physique et mental.</MudText>
+                </MudCardContent>
+                <MudCardActions Class="card-actions">
+                    <MudButton OnClick="GoToSante" Color="Color.Primary" FullWidth="true" Variant="Variant.Filled" Class="rounded-xl">Voir plus</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+
+        <MudItem xs="12" sm="6" md="4">
+            <MudCard Class="rounded-xl card-background">
+                <div class="card-image" style="background-image: url('/img/reseauxsociaux.jpg');"></div>
+                <div class="card-overlay"></div>
+                <MudCardContent Class="card-content">
+                    <MudText Typo="Typo.h6" Align="Align.Center" GutterBottom="true">Social</MudText>
+                    <MudText>Rejoignez des forums et connectez-vous avec d'autres étudiants.</MudText>
+                </MudCardContent>
+                <MudCardActions Class="card-actions">
+                    <MudButton OnClick="GoToSocial" Color="Color.Primary" FullWidth="true" Variant="Variant.Filled" Class="rounded-xl">Voir plus</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+
+        <MudItem xs="12" sm="6" md="4">
+            <MudCard Class="rounded-xl card-background">
+                <div class="card-image" style="background-image: url('/img/emploi.png');"></div>
+                <div class="card-overlay"></div>
+                <MudCardContent Class="card-content">
+                    <MudText Typo="Typo.h6" Align="Align.Center" GutterBottom="true">Emploi</MudText>
+                    <MudText>Découvrez des offres d'emploi et des opportunités de stage.</MudText>
+                </MudCardContent>
+                <MudCardActions Class="card-actions">
+                    <MudButton OnClick="GoToEmploi" Color="Color.Primary" FullWidth="true" Variant="Variant.Filled" Class="rounded-xl">Voir plus</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+
+        <MudItem xs="12" sm="6" md="4">
+            <MudCard Class="rounded-xl card-background">
+                <div class="card-image" style="background-image: url('/img/faq.jpg');"></div>
+                <div class="card-overlay"></div>
+                <MudCardContent Class="card-content">
+                    <MudText Typo="Typo.h6" Align="Align.Center" GutterBottom="true">F.A.Q.</MudText>
+                    <MudText>Trouvez des réponses à vos questions fréquentes.</MudText>
+                </MudCardContent>
+                <MudCardActions Class="card-actions">
+                    <MudButton OnClick="GoToFAQ" Color="Color.Primary" FullWidth="true" Variant="Variant.Filled" Class="rounded-xl">Voir plus</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</MudContainer>
+
+@code {
+    private void GoToBonPlans()
+    {
+        NavigationManager.NavigateTo("/bons-plans");
+    }
+
+    private void GoToCours()
+    {
+        NavigationManager.NavigateTo("/cours");
+    }
+
+    private void GoToSante()
+    {
+        NavigationManager.NavigateTo("/sante");
+    }
+
+    private void GoToSocial()
+    {
+        NavigationManager.NavigateTo("/social");
+    }
+
+    private void GoToEmploi()
+    {
+        NavigationManager.NavigateTo("/emploi");
+    }
+
+    private void GoToFAQ()
+    {
+        NavigationManager.NavigateTo("/faq");
+    }
+}
+
+<style>
+    .card-background {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-size: cover;
+        background-position: center;
+        z-index: 0; /* En dessous de tout */
+    }
+
+    .card-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5); /* Ombre sombre (noir) avec opacité */
+        z-index: 1; /* Au-dessus de l'image */
+    }
+
+    .card-content {
+        position: relative;
+        z-index: 2; /* Au-dessus de l'overlay */
+        color: white; /* Couleur du texte */
+    }
+
+    .card-actions {
+        position: relative;
+        z-index: 2; /* Assurez-vous que le bouton est au-dessus de l'overlay */
+        margin-top: 10px; /* Espacement pour le bouton */
+    }
+</style>

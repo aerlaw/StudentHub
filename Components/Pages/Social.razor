@@ -1,28 +1,52 @@
 ﻿@page "/social"
-@inject NavigationManager NavigationManager;
+@inject NavigationManager NavigationManager
 
-<MudCard>
-    <MudCardContent>
-        <MudText Typo="Typo.h4">Forum Étudiant</MudText>
-        <MudButton OnClick="() => NavigateToFacebook()" Color="Color.Primary">Facebook Group</MudButton>
-        <MudButton OnClick="() => NavigateToWhatsApp()" Color="Color.Primary">WhatsApp Group</MudButton>
-        <MudButton OnClick="() => NavigateToDiscord()" Color="Color.Primary">Discord Group</MudButton>
-    </MudCardContent>
-</MudCard>
+<MudContainer Style="display: flex; flex-direction: column; align-items: center; height: 100vh;">
+    <MudText Typo="Typo.h4" Align="Align.Center" Style="margin-top: 16px;">
+        Réseaux Sociaux
+    </MudText>
+    <MudText Align="Align.Center" Style="margin-bottom: 32px;">
+        Rejoignez nos réseaux sociaux
+    </MudText>
+    <MudGrid Justify="Justify.Center" Style="width: 100%; margin-top: 20%">
+        <MudItem xs="2" Style="text-align: center;" Class="pa-2">
+            <MudIconButton Icon="@Icons.Custom.Brands.TikTok" Color="Color.Primary" aria-label="TikTok" Href="https://www.tiktok.com/fr/" Size="Size.Large" Variant="Variant.Outlined" Class="rounded-xl pa-2" />
+            <MudText Align="Align.Center">TikTok</MudText>
+        </MudItem>
+        <MudItem xs="2" Style="text-align: center;" Class="pa-2">
+            <MudIconButton Icon="@Icons.Custom.Brands.Instagram" Color="Color.Primary" aria-label="Instagram" Href="https://www.instagram.com/" Size="Size.Large" Variant="Variant.Outlined" Class="rounded-xl pa-2" />
+            <MudText Align="Align.Center">Instagram</MudText>
+        </MudItem>
+        <MudItem xs="2" Style="text-align: center;" Class="pa-2">
+            <MudIconButton Icon="@Icons.Custom.Brands.X" Color="Color.Primary" aria-label="X" Href="https://x.com/" Size="Size.Large" Variant="Variant.Outlined" Class="rounded-xl pa-2" />
+            <MudText Align="Align.Center">X</MudText>
+        </MudItem>
+        <MudItem xs="2" Style="text-align: center;" Class="pa-2">
+            <MudIconButton Icon="@Icons.Custom.Brands.Telegram" Color="Color.Primary" aria-label="Telegram" Href="https://web.telegram.org/k/" Size="Size.Large" Variant="Variant.Outlined" Class="rounded-xl pa-2" />
+            <MudText Align="Align.Center">Telegram</MudText>
+        </MudItem>
+        <MudItem xs="2" Style="text-align: center;" Class="pa-2">
+            <MudIconButton Icon="@Icons.Custom.Brands.Gmail" Color="Color.Primary" aria-label="Gmail" Href="mailto:studentHub@student.me" Size="Size.Large" Variant="Variant.Outlined" Class="rounded-xl pa-2" />
+            <MudText Align="Align.Center">Gmail</MudText>
+        </MudItem>
+    </MudGrid>
 
-@code {
-    private void NavigateToFacebook()
-    {
-        NavigationManager.NavigateTo("https://facebook.com");
-    }
-
-    private void NavigateToWhatsApp()
-    {
-        NavigationManager.NavigateTo("https://whatsapp.com");
-    }
-
-    private void NavigateToDiscord()
-    {
-        NavigationManager.NavigateTo("https://discord.com");
-    }
-}
+    <MudGrid Justify="Justify.Center" Style="width: 100%; margin-top: 16px;">
+        <MudItem xs="2" Style="text-align: center;" Class="pa-2">
+            <MudIconButton Icon="@Icons.Custom.Brands.WhatsApp" Color="Color.Primary" aria-label="WhatsApp" Href="https://www.whatsapp.com/?lang=fr_FR" Size="Size.Large" Variant="Variant.Outlined" Class="rounded-xl pa-2" />
+            <MudText Align="Align.Center">WhatsApp</MudText>
+        </MudItem>
+        <MudItem xs="2" Style="text-align: center;" Class="pa-2">
+            <MudIconButton Icon="@Icons.Custom.Brands.YouTube" Color="Color.Primary" aria-label="YouTube" Href="https://youtube.com" Size="Size.Large" Variant="Variant.Outlined" Class="rounded-xl pa-2" />
+            <MudText Align="Align.Center">YouTube</MudText>
+        </MudItem>
+        <MudItem xs="2" Style="text-align: center;" Class="pa-2">
+            <MudIconButton Icon="@Icons.Custom.Brands.Discord" Color="Color.Primary" aria-label="Discord" Href="https://discord.com/" Size="Size.Large" Variant="Variant.Outlined" Class="rounded-xl pa-2" />
+            <MudText Align="Align.Center">Discord</MudText>
+        </MudItem>
+        <MudItem xs="2" Style="text-align: center;" Class="pa-2">
+            <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Primary" aria-label="GitHub" Href="https://github.com/" Size="Size.Large" Variant="Variant.Outlined" Class="rounded-xl pa-2" />
+            <MudText Align="Align.Center">GitHub</MudText>
+        </MudItem>
+    </MudGrid>
+</MudContainer>

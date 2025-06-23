@@ -1,22 +1,47 @@
 ﻿@page "/emploi"
-@inject NavigationManager NavigationManager;
 
-<MudCard>
-    <MudCardContent>
-        <MudText Typo="Typo.h4">Sites de Recherche d'Emploi</MudText>
-        <MudButton OnClick="() => NavigateToAlternance()" Color="Color.Primary">Alternance</MudButton>
-        <MudButton OnClick="() => NavigateToPetitsBoulots()" Color="Color.Primary">Petits Bouleaux</MudButton>
-    </MudCardContent>
-</MudCard>
+<MudContainer Style="text-align: center;">
+    <MudPaper Style="padding: 16px; margin-top: 2%;" Class="rounded-lg">
+        <MudText Typo="Typo.h4" Align="Align.Center" Class="mb-10">
+            Opportunités d'Emploi Étudiant
+        </MudText>
 
-@code {
-    private void NavigateToAlternance()
-    {
-        NavigationManager.NavigateTo("https://www.alternance.fr");
-    }
+        <MudText Align="Align.Justify" Class="px-4" Style="margin-top: 16px;">
+            Trouver un emploi en tant qu'étudiant peut être un moyen idéal de gérer les dépenses tout en acquérant de l'expérience professionnelle précieuse. StudentHub est ici pour vous aider dans votre recherche d'emplois adaptés à votre emploi du temps chargé. Nous avons rassemblé des ressources et des offres d'emploi spécifiquement conçues pour les étudiants, permettant une balance entre travail et études.
+        </MudText>
 
-    private void NavigateToPetitsBoulots()
-    {
-        NavigationManager.NavigateTo("https://www.petit-boulot.com");
-    }
-}
+        <MudText Typo="Typo.h4" Align="Align.Start" Style="margin-top: 24px; margin-left: 1%">
+            Jobteaser
+        </MudText>
+        <MudPaper Elevation="0" Style="display: flex; align-items: center; margin-top: 8px; padding: 16px;">
+            <MudText Style="width: 70%;" Align="Align.Justify">
+                Jobteaser est l'une des plateformes les plus reconnues pour les étudiants en recherche d'emploi. Elle propose des milliers d'annonces adaptées aux exigences des jeunes professionnels. Grâce à des outils de mise en relation et des conseils d'experts, Jobteaser permet aux étudiants de se préparer efficacement à leur future carrière, que ce soit par le biais de stages, d'emplois à temps partiel ou d'alternances.
+            </MudText>
+            <img src="/img/jobteaserLogo.png" alt="Logo Jobteaser" style="margin-left: 15px; width: 30%;">
+        </MudPaper>
+        <div style="text-align: center; margin-top: 16px;">
+            <a href="https://www.jobteaser.com" target="_blank" rel="noopener noreferrer">
+                <MudButton Color="Color.Primary" Variant="Variant.Filled">
+                    Se connecter à Jobteaser
+                </MudButton>
+            </a>
+        </div>
+
+        <MudText Typo="Typo.h4" Align="Align.Start" Style="margin-top: 24px; margin-left: 1%">
+            Indeed
+        </MudText>
+        <MudPaper Elevation="0" Style="display: flex; align-items: center; margin-top: 8px; padding: 16px;">
+            <MudText Style="width: 70%;" Align="Align.Justify">
+                Indeed est l'un des plus grands sites de recherche d'emploi au monde, offrant une vaste sélection d'offres adaptées aux étudiants. Que vous recherchiez un emploi saisonnier ou un stage pour acquérir une expérience précieuse, Indeed permet aux utilisateurs de filtrer les offres par type d'emploi, par secteur d'activité, et par localisation, rendant la recherche d'emploi simple et efficace.
+            </MudText>
+            <img src="/img/indeedLogo.png" alt="Logo Indeed" style="margin-left: 15px; width: 30%;">
+        </MudPaper>
+        <div style="text-align: center; margin-top: 16px;">
+            <a href="https://www.indeed.com" target="_blank" rel="noopener noreferrer">
+                <MudButton Color="Color.Primary" Variant="Variant.Filled">
+                    Se connecter à Indeed
+                </MudButton>
+            </a>
+        </div>
+    </MudPaper>
+</MudContainer>

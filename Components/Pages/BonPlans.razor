@@ -1,22 +1,48 @@
 ﻿@page "/bons-plans"
 @inject NavigationManager NavigationManager;
 
-<MudCard>
-    <MudCardContent>
-        <MudText Typo="Typo.h4">Bon Plans Étudiants</MudText>
-        <MudButton OnClick="() => NavigateToUnidays()" Color="Color.Primary">Unidays</MudButton>
-        <MudButton OnClick="() => NavigateToStudentBeans()" Color="Color.Primary">Student Beans</MudButton>
-    </MudCardContent>
-</MudCard>
+<MudContainer Style="text-align: center;">
+    <MudPaper Style="padding: 16px; margin-top: 2%;" Class="rounded-lg">
+        <MudText Typo="Typo.h4" Align="Align.Center" Class="mb-10">
+            Bons Plans Etudiant
+        </MudText>
 
-@code {
-    private void NavigateToUnidays()
-    {
-        NavigationManager.NavigateTo("https://www.unidays.com");
-    }
+        <MudText Align="Align.Justify" Class="px-4" Style="margin-top: 16px;" >
+            Dans le quotidien des étudiants, gérer un budget limité peut représenter un véritable défi. C'est pourquoi StudentHub a été conçu pour devenir un allié précieux en matière d'économies. La plateforme regroupe une multitude d'offres et de réductions spécifiquement adaptées aux jeunes, leur permettant ainsi d'accéder à des produits et services à des prix avantageux. Grâce à une interface intuitive et conviviale, les utilisateurs peuvent facilement naviguer à travers les différentes sections et découvrir des promotions qui répondent à leurs besoins spécifiques. StudentHub se positionne comme le partenaire idéal pour aider les étudiants à tirer le meilleur parti de leur budget.
+        </MudText>
 
-    private void NavigateToStudentBeans()
-    {
-        NavigationManager.NavigateTo("https://www.studentbeans.com");
-    }
-}
+        <MudText Typo="Typo.h4" Align="Align.Start" Style="margin-top: 24px; margin-left: 1%">
+            Unidays
+        </MudText>
+        <MudPaper Elevation="0" Style="display: flex; align-items: center; margin-top: 8px; padding: 16px; ">
+            <MudText Style="width: 70%;" Align="Align.Justify">
+                Un des partenaires phares de StudentHub est Unidays (myunidays.com), qui est reconnu pour ses réductions exclusives destinées aux étudiants sur des marques populaires dans le domaine de la mode, de la beauté, de la technologie et bien plus encore. En s'inscrivant sur Unidays, les étudiants peuvent bénéficier de réductions allant jusqu'à 50 % sur des articles de grandes marques, ce qui leur permet de réaliser des économies substantielles tout en se procurant les produits qu'ils désirent. Unidays propose également des promotions saisonnières et d’autres offres spéciales, offrant aux étudiants une occasion unique de profiter de tarifs avantageux sans aucune hésitation.
+            </MudText>
+            <img src="/img/unidaysLogo.png" alt="Logo Unidays" style="margin-left: 15px; width: 30%;">
+        </MudPaper>
+        <div style="text-align: center; margin-top: 16px;">
+            <a href="https://www.myunidays.com" target="_blank" rel="noopener noreferrer">
+                <MudButton Color="Color.Primary" Variant="Variant.Filled">
+                    Se connecter à Unidays
+                </MudButton>
+            </a>
+        </div>
+
+        <MudText Typo="Typo.h4" Align="Align.Start" Style="margin-top: 24px; margin-left: 1%">
+            StudentBeans
+        </MudText>
+        <MudPaper Elevation="0" Style="display: flex; align-items: center; margin-top: 8px; padding: 16px;">
+            <MudText Style="width: 70%;" Align="Align.Justify">
+                Un autre acteur majeur du secteur des réductions pour étudiants est StudentBeans (studentbeans.com). Cette plateforme renforce l'engagement de StudentHub à fournir des bonnes affaires grâce à une variété d'offres exclusives pour les étudiants, que ce soit pour des repas, des fournitures scolaires ou des abonnements à divers services. StudentBeans permet aux utilisateurs de découvrir des promotions inédites et de s'inscrire à des alertes concernant les meilleures offres qui apparaissent régulièrement. En reliant StudentHub à ces plateformes, les étudiants ne font pas seulement des économies, mais ils accèdent également à une communauté dynamique où ils peuvent partager et profiter ensemble des bons plans.
+            </MudText>
+            <img src="/img/SBlogo.png" alt="Logo StudentBeans" style="margin-left: 15px; width: 30%;">
+        </MudPaper>
+        <div style="text-align: center; margin-top: 16px;">
+            <a href="https://www.studentbeans.com/fr" target="_blank" rel="noopener noreferrer">
+                <MudButton Color="Color.Primary" Variant="Variant.Filled">
+                    Se connecter à Student Beans
+                </MudButton>
+            </a>
+        </div>
+    </MudPaper>
+</MudContainer>

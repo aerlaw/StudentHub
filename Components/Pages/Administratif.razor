@@ -1,25 +1,38 @@
 ﻿@page "/administratif"
-@inject NavigationManager NavigationManager;
 
-<MudCard>
-    <MudCardContent>
-        <MudText Typo="Typo.h4">Services de l'État Français</MudText>
-        <MudButton OnClick="RedirectToANTS" Color="Color.Primary">ANTS</MudButton>
-        <MudButton OnClick="RedirectToCAF" Color="Color.Primary">CAF</MudButton>
-        <!-- Ajoute d'autres services si nécessaire -->
-    </MudCardContent>
-</MudCard>
+<MudContainer Style="height: 100vh; display: flex; align-items: center; justify-content: center;">
+    <MudCard>
+        <MudCardContent>
+            <MudGrid Justify="Justify.Center">
+                <MudItem xs="12">
+                    <MudText Typo="Typo.h4" Align="Align.Center">
+                        Inscription au permis
+                    </MudText>
+                    <MudText Align="Align.Center">
+                        Sur cette page, vous allez pouvoir vous inscrire sur le permis avec une réduction de 500€ si vous êtes en alternance avec un contrat d'apprentissage.
+                    </MudText>
+                    <div style="text-align: center; margin-top: 16px;">
+                        <a href="https://ants.gouv.fr" target="_blank" rel="noopener noreferrer">
+                            <MudButton Color="Color.Primary" Variant="Variant.Filled">
+                                Inscription ANTS
+                            </MudButton>
+                        </a>
+                    </div>
+                </MudItem>
 
-@code {
-
-    private void RedirectToANTS()
-    {
-        NavigationManager.NavigateTo("https://ants.gouv.fr");
-    }
-
-    private void RedirectToCAF()
-    {
-        NavigationManager.NavigateTo("https://www.caf.fr");
-    }
-
-}
+                <MudItem xs="12" Style="margin-top: 32px;">
+                    <MudText Align="Align.Center">
+                        Ici, vous pourrez faire toutes les démarches afin de bénéficier d'aides publiques pour des questions de logements, etc.
+                    </MudText>
+                    <div style="text-align: center; margin-top: 16px;">
+                        <a href="https://www.caf.fr" target="_blank" rel="noopener noreferrer">
+                            <MudButton Color="Color.Primary" Variant="Variant.Filled">
+                                Aide CAF
+                            </MudButton>
+                        </a>
+                    </div>
+                </MudItem>
+            </MudGrid>
+        </MudCardContent>
+    </MudCard>
+</MudContainer>
