@@ -1,44 +1,67 @@
 ﻿@page "/sante"
-@using StudentHub.Models;
-@inject NavigationManager NavigationManager;
 
 <MudContainer>
-    @foreach (var category in healthCategories)
-    {
-        <MudCard>
-            <MudCardContent>
-                <MudText Typo="Typo.h5">@category.Name</MudText>
-                @foreach (var video in category.Videos)
-                {
+    <MudText Typo="Typo.h4" Align="Align.Center" Style="margin-top: 20px;">
+        Santé
+    </MudText>
+
+    <!-- Section Santé mentale -->
+    <MudPaper Elevation="1" Style="margin-top: 20px; padding: 20px;">
+        <MudText Typo="Typo.h5" Style="margin-bottom: 10px;">
+            Santé mentale
+        </MudText>
+        <MudGrid>
+            @foreach (var video in MentalHealthVideos)
+            {
+                <MudItem xs="12" sm="6" md="4">
                     <MudCard>
+                        <iframe width="100%" height="200" src="@video.Url" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         <MudCardContent>
-                            <MudText>@video.Title</MudText>
-                            <MudButton OnClick="@(() => NavigateToVideo(video.Url))" Color="Color.Primary">Visionner</MudButton>
+                            <MudText Typo="Typo.body1" Align="Align.Center">@video.Title</MudText>
                         </MudCardContent>
                     </MudCard>
-                }
-            </MudCardContent>
-        </MudCard>
-    }
-</MudContainer>
-
-@code {
-    private List<HealthCategory> healthCategories = new List<HealthCategory>
-    {
-        new HealthCategory
-        {
-            Name = "Bien-être",
-            Videos = new List<Video>
-            {
-                new Video { Title = "Yoga", Url = "https://example.com/yoga" },
-                // Ajoute d'autres vidéos
+                </MudItem>
             }
-        },
-        // Ajoute d'autres catégories
-    };
+        </MudGrid>
+    </MudPaper>
 
-    private void NavigateToVideo(string url)
-    {
-        NavigationManager.NavigateTo(url);
-    }
-}
+    <!-- Section Santé physique -->
+    <MudPaper Elevation="1" Style="margin-top: 20px; padding: 20px;">
+        <MudText Typo="Typo.h5" Style="margin-bottom: 10px;">
+            Santé physique
+        </MudText>
+        <MudGrid>
+            @foreach (var video in PhysicalHealthVideos)
+            {
+                <MudItem xs="12" sm="6" md="4">
+                    <MudCard>
+                        <iframe width="100%" height="200" src="@video.Url" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <MudCardContent>
+                            <MudText Typo="Typo.body1" Align="Align.Center">@video.Title</MudText>
+                        </MudCardContent>
+                    </MudCard>
+                </MudItem>
+            }
+        </MudGrid>
+    </MudPaper>
+
+    <!-- Section Relaxation -->
+    <MudPaper Elevation="1" Style="margin-top: 20px; padding: 20px;">
+        <MudText Typo="Typo.h5" Style="margin-bottom: 10px;">
+            Relaxation
+        </MudText>
+        <MudGrid>
+            @foreach (var video in RelaxationVideos)
+            {
+                <MudItem xs="12" sm="6" md="4">
+                    <MudCard>
+                        <iframe width="100%" height="200" src="@video.Url" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <MudCardContent>
+                            <MudText Typo="Typo.body1" Align="Align.Center">@video.Title</MudText>
+                        </MudCardContent>
+                    </MudCard>
+                </MudItem>
+            }
+        </MudGrid>
+    </MudPaper>
+</MudContainer>

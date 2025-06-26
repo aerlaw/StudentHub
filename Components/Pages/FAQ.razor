@@ -1,26 +1,44 @@
 ﻿@page "/faq"
 
-<MudCard>
-    <MudCardContent>
-        <MudText Typo="Typo.h4">Questions Fréquemment Posées</MudText>
-        <MudTextField @bind-Value="_question" Label="Soumettre une question" />
-        <MudButton OnClick="SubmitQuestion" Color="Color.Primary">Soumettre</MudButton>
+<MudContainer>
+    <MudCard>
+        <MudCardContent>
+            <MudText Typo="Typo.h4" Align="Align.Center">Questions Fréquemment Posées</MudText>
 
-        <MudText Typo="Typo.h5">Liste des Questions :</MudText>
-        @foreach (var question in _questions)
-        {
-            <MudText>@question</MudText>
-        }
-    </MudCardContent>
-</MudCard>
+            <MudTextField @bind-Value="searchQuery" Label="Rechercher une question..." Clearable="true" />
+
+            <MudTextField @bind-Value="newQuestion" Label="Soumettre une nouvelle question" />
+            <MudButton OnClick="SubmitQuestion" Color="Color.Primary">Soumettre</MudButton>
+
+            <MudText Typo="Typo.h5" Align="Align.Center">Liste des Questions :</MudText>
+            @foreach (var question in filteredQuestions)
+            {
+                <MudText>@question</MudText>
+            }
+        </MudCardContent>
+    </MudCard>
+</MudContainer>
 
 @code {
-    private string? _question;
-    private readonly List<string?> _questions = new List<string?>();
+    private string searchQuery;
+    private string newQuestion;
+    private List<string> questions = new List<string>
+    {
+        "Comment puis-je m'inscrire ?",
+        "Quelles sont les exigences pour le permis de conduire ?",
+        "Comment contacter le support ?"
+    };
+
+    private IEnumerable<string> filteredQuestions => questions
+        .Where(q => string.IsNullOrEmpty(searchQuery) || q.Contains(searchQuery, StringComparison.OrdinalIgnoreCase))
+        .ToList();
 
     private void SubmitQuestion()
     {
-        _questions.Add(_question);
-        _question = string.Empty; // Réinitialiser le champ
+        if (!string.IsNullOrWhiteSpace(newQuestion))
+        {
+            questions.Add(newQuestion);
+            newQuestion = string.Empty; // Réinitialiser le champ
+        }
     }
 }

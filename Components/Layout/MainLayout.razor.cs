@@ -1,4 +1,5 @@
-﻿using MudBlazor;
+﻿using Microsoft.AspNetCore.Components;
+using MudBlazor;
 
 namespace StudentHub.Components.Layout
 {
@@ -74,5 +75,12 @@ namespace StudentHub.Components.Layout
             true => Icons.Material.Rounded.AutoMode,
             false => Icons.Material.Outlined.DarkMode,
         };
+
+        [Inject]
+        public NavigationManager NavigationManager { get; set; } = default!;
+        private void GoToRegister()
+        {
+            NavigationManager.NavigateTo("/register");
+        }
     }
 }
